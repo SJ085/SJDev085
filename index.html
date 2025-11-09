@@ -3,8 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Correções de bugs, melhorias em JS, HTML e CSS e criação de landing pages - SJDev085" />
+
   <title>SJDev085 | Front-End & Landing Pages</title>
+
+  <link rel="icon" href="img/icon.png" type="image/png" />
+
+  <meta name="description" content="Saymon Junior - Desenvolvedor Front-End. Criação de landing pages, correção de bugs e otimização de sites com foco em performance, design limpo e código eficiente.">
+  <meta name="keywords" content="Saymon Junior, Desenvolvedor Front-End, Landing Pages, HTML, CSS, JavaScript, React, TypeScript, Otimização de Sites">
+  <meta name="author" content="Saymon Junior">
+  <meta property="og:title" content="Saymon Junior | Front-End Developer">
+  <meta property="og:description" content="Transformando ideias em interfaces eficientes e modernas. Confira meus projetos e serviços.">
+  <meta property="og:image" content="img/preview.png">
+  <meta property="og:url" content="https://sj-dev085.vercel.app/">
+  <meta name="theme-color" content="#0f1115">
 
   <style>
     :root {
@@ -142,6 +153,36 @@
       max-width: 600px;
       margin: 0 auto;
       font-size: 1rem;
+    }
+
+    #stack {
+    text-align: center;
+    margin-top: 4rem;
+    }
+
+    #stack h2 {
+    margin-bottom: 1.5rem;
+    color: var(--accent);
+    font-size: 1.8rem;
+    }
+
+    .stack-icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    }
+
+    .stack-icons img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .stack-icons img:hover {
+    transform: translateY(-6px) scale(1.1);
     }
 
     .services {
@@ -291,6 +332,17 @@
     <h2>Sobre mim</h2>
     <p>Sou desenvolvedor front-end focado em performance, design limpo e soluções práticas. Busco sempre entregar sites rápidos, bonitos e fáceis de manter. Cada detalhe do código é feito com cuidado e propósito, do layout à última linha de CSS.</p>
   </section>
+  
+    <section id="stack" class="section">
+    <h2>Tecnologias</h2>
+    <div class="stack-icons">
+        <img src="img/html.WebP" alt="HTML">
+        <img src="img/css.WebP" alt="CSS">
+        <img src="img/js.WebP" alt="JavaScript">
+        <img src="img/React.WebP" alt="React">
+        <img src="img/python.WebP" alt="Python">
+    </div>
+    </section>
 
   <section id="servicos">
     <h2>Serviços</h2>
@@ -342,9 +394,12 @@
     <h2>Contato</h2>
     <p>Entre em contato para solicitar um orçamento ou tirar dúvidas.</p>
     <a href="mailto:sjdev085@gmail.com"><button>Email</button></a>
+    <a href="https://github.com/SJ085" target="_blank"><button>GitHub</button></a>
+    <a href="https://linkedin.com/in/seuusuario" target="_blank"><button>LinkedIn</button></a>
   </section>
 
   <footer>
+    <p>"Cada linha de código conta uma história."</p>
     <p>© 2025 SJDev085. Todos os direitos reservados.</p>
   </footer>
 
