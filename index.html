@@ -17,291 +17,8 @@
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://sj-dev085.vercel.app/img/preview.png" />
 
-  <style>
-    :root {
-      --primary: #2b6cb0;
-      --bg: #0f1115;
-      --card: #181b22;
-      --text: #e5e5e5;
-      --muted: #a0aec0;
-      --accent: #63b3ed;
-    }
+  <link rel="stylesheet" href="styles.css" />
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-      font-family: 'Inter', sans-serif;
-    }
-
-    body {
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background-color: rgba(15, 17, 21, 0.7);
-      backdrop-filter: blur(12px);
-      z-index: 999;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      border-bottom: 1px solid #222;
-    }
-
-    header h1 {
-      font-size: 1.3rem;
-      color: var(--accent);
-      letter-spacing: 1px;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.2rem;
-    }
-
-    nav a {
-      color: var(--text);
-      text-decoration: none;
-      font-size: 0.95rem;
-      transition: color 0.2s ease;
-    }
-
-    nav a:hover {
-      color: var(--accent);
-    }
-
-    /* Botão hamburguer */
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      justify-content: space-between;
-      width: 25px;
-      height: 18px;
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-
-    .bar {
-      height: 3px;
-      width: 100%;
-      background-color: var(--text);
-      border-radius: 10px;
-      transition: all 0.3s ease;
-    }
-
-    @media (max-width: 768px) {
-      .menu-toggle {
-        display: flex;
-      }
-
-      nav ul {
-        position: absolute;
-        top: 70px;
-        right: 20px;
-        background: rgba(24, 27, 34, 0.9);
-        backdrop-filter: blur(10px);
-        flex-direction: column;
-        width: 200px;
-        border-radius: 10px;
-        border: 1px solid #222;
-        padding: 1rem;
-        display: none;
-      }
-
-      nav ul.active {
-        display: flex;
-      }
-    }
-
-    section {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 6rem 2rem 4rem;
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .hero {
-      text-align: center;
-      margin-top: 3rem;
-    }
-
-    .hero h2 {
-      font-size: 2rem;
-      margin-bottom: 0.8rem;
-      color: var(--accent);
-    }
-
-    .hero p {
-      color: var(--muted);
-      max-width: 600px;
-      margin: 0 auto;
-      font-size: 1rem;
-    }
-
-    #stack {
-    text-align: center;
-    margin-top: 4rem;
-    }
-
-    #stack h2 {
-    margin-bottom: 1.5rem;
-    color: var(--accent);
-    font-size: 1.8rem;
-    }
-
-    .stack-icons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    }
-
-    .stack-icons img {
-    width: 70px;
-    height: 70px;
-    object-fit: contain;
-    transition: transform 0.3s ease, filter 0.3s ease;
-    }
-
-    .stack-icons img:hover {
-    transform: translateY(-6px) scale(1.1);
-    }
-
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .card {
-      background: var(--card);
-      padding: 1.5rem;
-      border-radius: 12px;
-      border: 1px solid #222;
-      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      border-color: var(--accent);
-      box-shadow: 0 6px 15px rgba(99, 179, 237, 0.15);
-    }
-
-    .card h3 {
-      color: var(--accent);
-      margin-bottom: 0.6rem;
-    }
-
-    .card p {
-      font-size: 0.95rem;
-      color: var(--muted);
-    }
-
-    .card span {
-      display: inline-block;
-      margin-top: 1rem;
-      font-weight: bold;
-      color: var(--text);
-    }
-
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-      margin-top: 40px;
-    }
-
-    .portfolio-item {
-      background: rgba(24, 27, 34, 0.85);
-      border: 1px solid #222;
-      border-radius: 12px;
-      overflow: hidden;
-      backdrop-filter: blur(8px);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .portfolio-item:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 6px 15px rgba(99, 179, 237, 0.25);
-    }
-
-    .portfolio-item img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      cursor: pointer;
-      transition: opacity 0.3s ease;
-    }
-
-    .portfolio-item img:hover {
-      opacity: 0.9;
-    }
-
-    .portfolio-item h3 {
-      margin: 12px;
-      color: #fff;
-      font-size: 1.1rem;
-    }
-
-    .portfolio-item p {
-      margin: 0 12px 20px;
-      color: #bdbdbd;
-      font-size: 0.9rem;
-      line-height: 1.4;
-    }
-
-    .contact {
-      text-align: center;
-      margin-top: 2rem;
-    }
-
-    .contact p {
-      color: var(--muted);
-      margin-bottom: 1.5rem;
-    }
-
-    .contact button {
-      background: var(--primary);
-      color: white;
-      border: none;
-      padding: 0.8rem 1.6rem;
-      border-radius: 8px;
-      cursor: pointer;
-      margin: 0.3rem;
-      transition: background 0.2s ease;
-    }
-
-    .contact button:hover {
-      background: var(--accent);
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
-      color: var(--muted);
-      border-top: 1px solid #222;
-    }
-  </style>
 </head>
 <body>
   <header>
@@ -333,16 +50,22 @@
     <p>Sou desenvolvedor front-end focado em performance, design limpo e soluções práticas. Busco sempre entregar sites rápidos, bonitos e fáceis de manter. Cada detalhe do código é feito com cuidado e propósito, do layout à última linha de CSS.</p>
   </section>
   
-    <section id="stack" class="section">
-    <h2>Tecnologias</h2>
-    <div class="stack-icons">
-        <img src="img/html.WebP" alt="HTML">
-        <img src="img/css.WebP" alt="CSS">
-        <img src="img/js.WebP" alt="JavaScript">
-        <img src="img/React.WebP" alt="React">
-        <img src="img/python.WebP" alt="Python">
+  <section id="stack" class="section">
+    <div id="stack">
+      <h2>Tecnologias</h2>
+      <div class="stack-icons">
+        <div class="stack-item" data-tip="HTML"><img src="img/HTML.WebP" alt="HTML"></div>
+        <div class="stack-item" data-tip="CSS"><img src="img/CSS.WebP" alt="CSS"></div>
+        <div class="stack-item" data-tip="JavaScript"><img src="img/JS.WebP" alt="JavaScript"></div>
+        <div class="stack-item" data-tip="TypeScript"><img src="img/TS.WebP" alt="TypeScript"></div>
+        <div class="stack-item" data-tip="React"><img src="img/React.WebP" alt="React"></div>
+        <div class="stack-item" data-tip="Python"><img src="img/Python.WebP" alt="Python"></div>
+        <div class="stack-item" data-tip="Tailwind"><img src="img/Tailwind.WebP" alt="Tailwind"></div>
+        <div class="stack-item" data-tip="Node.js"><img src="img/Node.js.WebP" alt="Node.js"></div>
+        <div class="stack-item" data-tip="PostgresSQL"><img src="img/PostgresSQL.WebP" alt="PostgresSQL"></div>
+      </div>
     </div>
-    </section>
+  </section>
 
   <section id="servicos">
     <h2>Serviços</h2>
@@ -395,7 +118,7 @@
     <p>Entre em contato para solicitar um orçamento ou tirar dúvidas.</p>
     <a href="mailto:sjdev085@gmail.com"><button>Email</button></a>
     <a href="https://github.com/SJ085" target="_blank"><button>GitHub</button></a>
-    <a href="https://linkedin.com/in/seuusuario" target="_blank"><button>LinkedIn</button></a>
+    <a href="https://www.linkedin.com/in/saymon-jr-40010a236/" target="_blank"><button>LinkedIn</button></a>
   </section>
 
   <footer>
